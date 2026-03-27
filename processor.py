@@ -10,11 +10,6 @@ def get_grade(score):
     return 'F'
 
 def process_data(input_file, output_file):
-    # Ensure the output-directory exists
-    output_dir = os.path.dirname(output_file)
-    if output_dir and not os.path.exists(output_dir):
-        os.makedirs(output_dir)
-
     if not os.path.exists(input_file):
         print(f"Error: {input_file} not found.")
         return
@@ -46,7 +41,7 @@ def process_data(input_file, output_file):
         print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
-    IN_PATH = "input.csv"
-    OUT_PATH = os.path.join("output-folder", "output.txt") # place the output file in outputs-folder
+    IN_PATH = os.path.join("data-files", "input.csv") # # fetch the input csv file to be processed in mounted data-files folder
+    OUT_PATH = os.path.join("data-files", "output.txt") # place the processed output.txt file in data-files folder
     
     process_data(IN_PATH, OUT_PATH)
